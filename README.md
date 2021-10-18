@@ -62,16 +62,13 @@ The frame transformation can be found as:
 __Pseudocode__:
 
 ```python
-# Init stuff
-while True:
-    path, gain = get_path_from_action_server()
-    if path is empty:
-        exit() # Done
-    while path is not empty:
-      path, setpoint = get_updated_path_and_setpoint_from_service(path)
-      setpoint_transformed = transform_setpoint_to_robot_frame(setpoint)
-      publish(setpoint_transformed)
-      sleep()
+# initial guess
+Theta_hat = Theta + eps_Theta
+while eps_X > tolerance:
+    X_hat = K(Theta_hat)
+    eps_X = X_hat - X
+    eps_Theta = inv(J) @ Theta_hat @ eps_X
+    Theta_hat = Theta_hat - eps_Theta
 ```
 
 ## Run the simulator
