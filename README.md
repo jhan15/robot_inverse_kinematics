@@ -20,9 +20,7 @@ It is composed of two parts:
 
 ### Scara robot
 
-<p align="center">
-  <img src="https://user-images.githubusercontent.com/62132206/137815065-4025c6bd-b8ef-4343-b5e2-880c72676910.png" width="400">
-</p>
+The following image shows the distances between the joints and the end-effector frame, in the robot's zero configuration. Two joints (q1 and q2) are revolute, and one (q3) is prismatic. Notice that the end-effector frame and the base frame are at the same height, which means that the end-effector z coordinate coincides with the value of the last prismatic joint (q3).
 
 <p align="center">
   <img src="https://user-images.githubusercontent.com/62132206/137815066-2c2df8a5-2ec3-4d06-b2e2-c1e209198b69.png" width="400">
@@ -30,13 +28,24 @@ It is composed of two parts:
 
 ### Kuka robot
 
-<p align="center">
-  <img src="https://user-images.githubusercontent.com/62132206/137815063-e6cf7d24-a67e-4da1-a043-86d8113c3870.png" width="400">
-</p>
+This robot has a kinematics structure much more complex than the scara, therefore it is not feasible to obtain an analytic solution for the inverse kinematics problem. The inputs to this function are: 
+
+* point = (x, y, z), the desired position of the end-effector.
+* R = 3x3 rotation matrix, the desired orientation of the end-effector.
+* joint_positions = (q1, q2, q3, q4, q5, q5, q7) the current joint positions.
+
+The output of this function is a vector q containing the 7 joint values that give the desired pose of the end-effector.
 
 <p align="center">
   <img src="https://user-images.githubusercontent.com/62132206/137815059-03c594ee-d76e-4ef5-887e-8d750aba119c.png" width="400">
 </p>
+
+This is the DH table of the kuka robot, with the depicted frames:
+
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/62132206/137815470-a0dfa099-7aae-4151-bea9-af3dadf71ed4.png" width="400">
+</p>
+
 
 ## Run the simulator
 
