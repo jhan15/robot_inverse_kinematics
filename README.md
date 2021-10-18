@@ -48,15 +48,12 @@ This is the DH table of the kuka robot, with the depicted frames:
 
 The DH table follows this convention:
 
- - `x`: horizontal position
- - `y`: vertical position
- - `theta`: heading angle (direction of travel)
- - 
-* `a_i` distance between 'z_i-1' and 'z_i' along the axis 'x_i'
-* 𝛼𝑖 angle between 𝑧𝑖−1 and 𝑧𝑖 about the axis 𝑥𝑖
-* 𝑑𝑖 distance between 𝑥𝑖−1 and 𝑥𝑖 along the axis 𝑧𝑖−1
-* 𝜃𝑖 angle between 𝑥𝑖−1 and 𝑥𝑖 about the axis 𝑧𝑖−1
-* The frame transformation can be found as:
+* `a_i` distance between `z_i-1` and `z_i` along the axis `x_i`
+* `alpha_i` angle between `z_i-1` and `z_i` about the axis `x_i`
+* `d_i` distance between `x_i-1` and `x_i` along the axis `z_i-1`
+* `theta_i` angle between `x_i-1` and `x_i` about the axis `z_i-1`
+
+The frame transformation can be found as:
 
 𝑖−1𝑇𝑖=𝑇𝑟𝑎𝑛𝑠(𝑧𝑖−1,𝑑𝑖)𝑅𝑜𝑡(𝑧𝑖−1,𝜃𝑖)𝑇𝑟𝑎𝑛𝑠(𝑥𝑖,𝑎𝑖)𝑅𝑜𝑡(𝑥𝑖,𝛼𝑖)
 
