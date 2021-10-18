@@ -88,5 +88,6 @@ $ roslaunch kinematics_assignment kuka_launch.launch
 ## Simulation result (kuka)
 
 <p align="center">
-  <img src="https://user-images.githubusercontent.com/62132206/137804639-fe2ab29b-333c-4385-b9d8-b2332268e9a0.gif" width="600">
+  <img src="https://user-images.githubusercontent.com/62132206/137820158-5bf73704-7b30-4fae-bb1c-c3b5593bbc74.gif" width="600">
 </p>
+
