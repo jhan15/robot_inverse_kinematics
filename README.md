@@ -63,12 +63,12 @@ __Pseudocode__:
 
 ```python
 # initial guess
-Theta_hat = Theta + eps_Theta
-while eps_X > tolerance:
-    X_hat = K(Theta_hat)
-    eps_X = X_hat - X
-    eps_Theta = inv(J) @ Theta_hat @ eps_X
-    Theta_hat = Theta_hat - eps_Theta
+q_hat = q + eps_q
+while eps_x > tolerance:
+    x_hat = K(q_hat)
+    eps_x = x_hat - x
+    eps_q = inv(J) @ q_hat @ eps_x
+    q_hat = q_hat - eps_q
 ```
 
 ## Run the simulator
