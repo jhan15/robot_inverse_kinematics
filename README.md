@@ -59,6 +59,21 @@ The frame transformation can be found as:
   <img src="https://user-images.githubusercontent.com/62132206/137816296-6b2ad7f3-b6c1-4b85-adfb-e1f1a3086649.png" width="400">
 </p>
 
+__Pseudocode__:
+
+```python
+# Init stuff
+while True:
+    path, gain = get_path_from_action_server()
+    if path is empty:
+        exit() # Done
+    while path is not empty:
+      path, setpoint = get_updated_path_and_setpoint_from_service(path)
+      setpoint_transformed = transform_setpoint_to_robot_frame(setpoint)
+      publish(setpoint_transformed)
+      sleep()
+```
+
 ## Run the simulator
 
 Scara robot
