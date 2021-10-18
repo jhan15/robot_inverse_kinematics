@@ -55,7 +55,9 @@ The DH table follows this convention:
 
 The frame transformation can be found as:
 
-𝑖−1𝑇𝑖=𝑇𝑟𝑎𝑛𝑠(𝑧𝑖−1,𝑑𝑖)𝑅𝑜𝑡(𝑧𝑖−1,𝜃𝑖)𝑇𝑟𝑎𝑛𝑠(𝑥𝑖,𝑎𝑖)𝑅𝑜𝑡(𝑥𝑖,𝛼𝑖)
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/62132206/137816296-6b2ad7f3-b6c1-4b85-adfb-e1f1a3086649.png" width="400">
+</p>
 
 ## Run the simulator
 
