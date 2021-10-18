@@ -30,9 +30,9 @@ The following image shows the distances between the joints and the end-effector 
 
 This robot has a kinematics structure much more complex than the scara, therefore it is not feasible to obtain an analytic solution for the inverse kinematics problem. The inputs to this function are: 
 
-* point = (x, y, z), the desired position of the end-effector.
-* R = 3x3 rotation matrix, the desired orientation of the end-effector.
-* joint_positions = (q1, q2, q3, q4, q5, q5, q7) the current joint positions.
+* `point = (x, y, z)`, the desired position of the end-effector.
+* `R = 3x3` rotation matrix, the desired orientation of the end-effector.
+* `joint_positions = (q1, q2, q3, q4, q5, q5, q7)` the current joint positions.
 
 The output of this function is a vector q containing the 7 joint values that give the desired pose of the end-effector.
 
