@@ -46,6 +46,15 @@ This is the DH table of the kuka robot, with the depicted frames:
   <img src="https://user-images.githubusercontent.com/62132206/137815470-a0dfa099-7aae-4151-bea9-af3dadf71ed4.png" width="400">
 </p>
 
+The DH table follows this convention:
+
+𝑎𝑖 distance between 𝑧𝑖−1 and 𝑧𝑖 along the axis 𝑥𝑖
+𝛼𝑖 angle between 𝑧𝑖−1 and 𝑧𝑖 about the axis 𝑥𝑖
+𝑑𝑖 distance between 𝑥𝑖−1 and 𝑥𝑖 along the axis 𝑧𝑖−1
+𝜃𝑖 angle between 𝑥𝑖−1 and 𝑥𝑖 about the axis 𝑧𝑖−1
+The frame transformation can be found as:
+
+𝑖−1𝑇𝑖=𝑇𝑟𝑎𝑛𝑠(𝑧𝑖−1,𝑑𝑖)𝑅𝑜𝑡(𝑧𝑖−1,𝜃𝑖)𝑇𝑟𝑎𝑛𝑠(𝑥𝑖,𝑎𝑖)𝑅𝑜𝑡(𝑥𝑖,𝛼𝑖)
 
 ## Run the simulator
 
