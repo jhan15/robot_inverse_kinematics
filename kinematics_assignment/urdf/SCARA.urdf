@@ -1,0 +1,228 @@
+<!-- This model is adapted from: https://github.com/jihoonkim92/arduino_sub-->
+
+<robot name="SCARA_robot">
+  <link name="base">
+    <visual>
+      <geometry>
+        <box size="0.2 0.05 0.01"/>
+      </geometry>
+      <material name="blue">
+        <color rgba="0 0 0.8 1"/>
+      </material>
+    </visual>
+  </link>
+
+  <link name="base_layer_lower">
+    <visual>
+      <origin xyz="0 0 0.01"/>
+      <geometry>
+        <box size="0.19 0.05 0.01"/>
+      </geometry>
+      <material name="blue"/>
+    </visual>
+  </link>
+
+  <link name="base_layer_higher">
+    <visual>
+      <origin xyz="0 0 0.05"/>
+      <geometry>
+        <box size="0.19 0.05 0.01"/>
+      </geometry>
+      <material name="blue"/>
+    </visual>
+  </link>
+
+  <link name="leg1">
+    <visual>
+      <origin xyz="0.07 0 0"/>
+      <geometry>
+        <box size="0.15 0.05 0.01"/>
+      </geometry>
+      <material name="blue"/>
+    </visual>
+  </link>
+
+  <link name="leg2">
+    <visual>
+      <origin xyz="0.07 0 0"/>
+      <geometry>
+        <box size="0.15 0.05 0.01"/>
+      </geometry>
+      <material name="blue"/>
+    </visual>
+  </link>
+
+  <link name="motor1">
+    <visual>
+      <origin xyz="0 0 0"/>
+      <geometry>
+        <cylinder length="0.06" radius="0.02"/>
+      </geometry>
+      <material name="red">
+        <color rgba="0.8 0 0 1"/>
+      </material>
+    </visual>
+  </link>
+
+  <link name="motor2">
+    <visual>
+      <origin xyz="0 0 0"/>
+      <geometry>
+        <cylinder length="0.06" radius="0.02"/>
+      </geometry>
+      <material name="red">
+        <color rgba="0.8 0 0 1"/>
+      </material>
+    </visual>
+  </link>
+
+  <link name="motor3">
+    <visual>
+      <origin xyz="0 0 0"/>
+      <geometry>
+        <box size="0.05 0.05 0.05"/>
+      </geometry>
+      <material name="red">
+        <color rgba="0.8 0 0 1"/>
+      </material>
+    </visual>
+  </link>
+
+  <link name="link1">
+    <visual>
+      <origin xyz="0.16 0 0.03" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.4 0.05 0.01"/>
+      </geometry>
+      <material name="white">
+        <color rgba="1 1 1 1"/>
+      </material>
+    </visual>
+  </link>
+
+  <link name="link2">
+    <visual>
+      <origin xyz="0.1 0 0.05" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.28 0.05 0.01"/>
+      </geometry>
+      <material name="blue">
+        <color rgba="0 0 0.8 1"/>
+      </material>
+    </visual>
+  </link>
+
+  <link name="link3">
+    <visual>
+      <origin xyz="0.3 0 0.1" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.2 0.05 0.01"/>
+      </geometry>
+      <material name="white"/>
+    </visual>
+  </link>
+
+  <link name="shaft">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.01 0.01 0.2"/>
+      </geometry>
+      <material name="red"/>
+    </visual>
+  </link>
+
+  <link name="end_effector">
+    <visual>
+      <origin xyz="0 0 0.15" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.01 0.01 0.3"/>
+      </geometry>
+      <material name="white"/>
+    </visual>
+  </link>
+
+  <link name="world"/>
+
+  <joint name="rotational1" type="continuous">
+    <parent link="base"/>
+    <child link="link1"/>
+    <origin xyz="0.07 0 0" rpy="0 0 0"/>
+    <axis xyz="0 0 1"/>
+  </joint>
+
+  <joint name="rotational2" type="continuous">
+    <parent link="link1"/>
+    <child link="link2"/>
+    <origin xyz="0.3 0 0" rpy="0 0 0"/>
+    <axis xyz="0 0 1"/>
+  </joint>
+
+  <joint name="translation" type="prismatic">
+    <parent link="link2"/>
+    <child link="link3"/>
+    <limit effort="1000.0" lower="0" upper="0.1" velocity="0.5"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <axis xyz="0 0 1"/>
+  </joint>
+
+  <joint name="base_to_world" type="fixed">
+    <parent link="base"/>
+    <child link="world"/>
+    <origin xyz="0 0 -0.15" rpy="0 0 0"/>
+  </joint>
+
+  <joint name="base_to_base_layer_lower" type="fixed">
+    <parent link="base"/>
+    <child link="base_layer_lower"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+  </joint>
+
+  <joint name="base_to_base_layer_higher" type="fixed">
+    <parent link="base"/>
+    <child link="base_layer_higher"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+  </joint>
+
+  <joint name="base_to_leg1" type="fixed">
+    <parent link="base"/>
+    <child link="leg1"/>
+    <origin xyz="0.1 0 0" rpy="0 1.57 0"/>
+  </joint>
+
+  <joint name="base_to_leg2" type="fixed">
+    <parent link="base"/>
+    <child link="leg2"/>
+    <origin xyz="-0.1 0 0" rpy="0 1.57 0"/>
+  </joint>
+
+  <joint name="base_to_motor1" type="fixed">
+    <parent link="base"/>
+    <child link="motor1"/>
+    <origin xyz="0.07 0 0.04" rpy="0 0 0"/>
+  </joint>
+
+  <joint name="link1_to_motor2" type="fixed">
+    <parent link="link1"/>
+    <child link="motor2"/>
+    <origin xyz="0.30 0 0.04" rpy="0 0 0"/>
+  </joint>
+
+  <joint name="link3_to_motor3" type="fixed">
+    <parent link="link2"/>
+    <child link="motor3"/>
+    <origin xyz="0.22 0 0.075" rpy="0 0 0"/>
+  </joint>
+
+  <joint name="motor3_to_shaft" type="fixed">
+    <parent link="motor3"/>
+    <child link="shaft"/>
+    <origin xyz="0 0 0.1" rpy="0 0 0"/>
+  </joint>
+
+  <joint name="link3_to_end_effector" type="fixed">
+    <parent link="link3"/>
+    <child link="end_effector"/>
+    <origin xyz="0.35 0 0" rpy="0 0 0"/>
+  </joint>
+</robot>

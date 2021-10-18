@@ -1,0 +1,22 @@
+<launch>
+	<arg name="model" default="$(find kinematics_assignment)/urdf/SCARA.urdf"/>
+	<arg name="gui" default="False" />
+	<arg name="remap_name" default="controller/joint_states"/>
+	
+	<param name="robot_description" textfile="$(arg model)" />
+	<param name="use_gui" value="$(arg gui)"/>
+	
+	<node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" >
+        <rosparam param="source_list" subst_value="True">["$(arg remap_name)"]</rosparam>
+    </node>
+	
+	<node name="robot_state_publisher" pkg="robot_state_publisher" type="state_publisher" />
+
+	<node name="rviz" pkg="rviz" type="rviz" args="-d $(find kinematics_assignment)/rviz/scara_world.rviz"/>
+
+	<node name="scara_node" pkg="kinematics_assignment" type="scara_node.py" output="screen">
+		<rosparam param="topic_name" subst_value="True">"$(arg remap_name)"</rosparam>
+	</node>
+
+
+</launch>
