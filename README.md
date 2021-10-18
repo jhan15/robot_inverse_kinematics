@@ -48,7 +48,11 @@ This is the DH table of the kuka robot, with the depicted frames:
 
 The DH table follows this convention:
 
-* 'a_i' distance between 'z_i-1' and 'z_i' along the axis 'x_i'
+ - `x`: horizontal position
+ - `y`: vertical position
+ - `theta`: heading angle (direction of travel)
+ - 
+* `a_i` distance between 'z_i-1' and 'z_i' along the axis 'x_i'
 * 𝛼𝑖 angle between 𝑧𝑖−1 and 𝑧𝑖 about the axis 𝑥𝑖
 * 𝑑𝑖 distance between 𝑥𝑖−1 and 𝑥𝑖 along the axis 𝑧𝑖−1
 * 𝜃𝑖 angle between 𝑥𝑖−1 and 𝑥𝑖 about the axis 𝑧𝑖−1
